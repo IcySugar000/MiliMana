@@ -3,8 +3,6 @@ from .models import Bangumi
 from AniQuest.apis.onebot import send_group_msg
 from AniQuest.config import config
 
-ANNOUNCE: list = config.onebot["announce"]
-
 
 def send_subscribe_msg(bangumi: Bangumi, title: str):
     logger.info("正在发送订阅信息...")
@@ -14,5 +12,5 @@ def send_subscribe_msg(bangumi: Bangumi, title: str):
           f"番剧名：{bangumi.name}\n" + \
           f"文件名：{title}"
 
-    for group in ANNOUNCE:
+    for group in config.onebot["announce"]:
         send_group_msg(group, msg)
