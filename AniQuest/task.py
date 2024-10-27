@@ -1,3 +1,4 @@
+import os
 import re
 import requests
 import xmltodict
@@ -53,6 +54,10 @@ def download_bangumi():
         logger.info(f"正在下载种子: {link}")
         save_path = SAVE_PATH + "/" + name
         torrent_path = f"AniQuest/data/torrents/{randint(1, 100)}.torrent"
+
+        # 如果torrent文件夹不存在，则创建
+        if not os.path.exists(torrent_path):
+            os.makedirs(torrent_path)
 
         # 下载临时种子文件，有代理时优先使用代理，不然使用直连
         if config.proxy['enable']:
