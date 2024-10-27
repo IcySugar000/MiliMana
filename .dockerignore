@@ -1,0 +1,8 @@
+logs/
+static/
+.git/
+.idea/
+AniQuest/data/torrents/
+AniQuest/config.json
+db.sqlite3
+qodana.yaml
